@@ -1,0 +1,1614 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Magic Home",
+  "description": {
+    "en": "Magic Home Wi-Fi LED bulbs, strips and sockets, controlled on the local network.",
+    "fr": "Ampoules, rubans LED et prises Wi-Fi Magic Home, pilotés sur le réseau local.",
+    "de": "Magic-Home-WLAN-Lampen, LED-Streifen und Steckdosen, lokal im Netzwerk gesteuert.",
+    "es": "Bombillas, tiras LED y enchufes Wi-Fi Magic Home, controlados en la red local."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-magic-home:0.1.0",
+  "gladys_version": ">=5.1.1",
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-magic-home/main/cover.jpg",
+  "categories": ["lighting"],
+  "transports": ["local"],
+  "network_discovery": [
+    {
+      "type": "udp-active-broadcast",
+      "ports": [48899]
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Search and test the devices",
+        "fr": "Rechercher et tester les appareils",
+        "de": "Geräte suchen und testen",
+        "es": "Buscar y probar los dispositivos"
+      },
+      "description": {
+        "en": "Searches the local network, then lists every device found with its address, its model and whether it answers.",
+        "fr": "Cherche sur le réseau local, puis liste chaque appareil trouvé avec son adresse, son modèle et s’il répond.",
+        "de": "Durchsucht das lokale Netzwerk und listet jedes gefundene Gerät mit Adresse, Modell und Erreichbarkeit auf.",
+        "es": "Busca en la red local y lista cada dispositivo encontrado con su dirección, su modelo y si responde."
+      }
+    }
+  ],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Before you start",
+        "fr": "Avant de commencer",
+        "de": "Bevor Sie beginnen",
+        "es": "Antes de empezar"
+      },
+      "description": {
+        "en": "Set up your devices with the Magic Home Pro app (or Zengge, Surplife…) and connect them to the same network as Gladys. Gladys then finds them by itself: open the Discover tab. Nothing goes through the cloud. Give each device a fixed IP address in your router: it is found again after an address change, but faster with a fixed one.",
+        "fr": "Installez vos appareils avec l’application Magic Home Pro (ou Zengge, Surplife…) et connectez-les au même réseau que Gladys. Gladys les trouve ensuite seule : ouvrez l’onglet Découverte. Rien ne passe par le cloud. Donnez à chaque appareil une adresse IP fixe dans votre box : il est retrouvé après un changement d’adresse, mais plus vite avec une adresse fixe.",
+        "de": "Richten Sie Ihre Geräte mit der App Magic Home Pro (oder Zengge, Surplife…) ein und verbinden Sie sie mit demselben Netzwerk wie Gladys. Gladys findet sie dann selbst: Öffnen Sie den Tab Entdecken. Nichts läuft über die Cloud. Geben Sie jedem Gerät in Ihrem Router eine feste IP-Adresse: Nach einem Adresswechsel wird es wiedergefunden, mit fester Adresse aber schneller.",
+        "es": "Configure sus dispositivos con la app Magic Home Pro (o Zengge, Surplife…) y conéctelos a la misma red que Gladys. Gladys los encuentra solo: abra la pestaña Descubrir. Nada pasa por la nube. Asigne a cada dispositivo una dirección IP fija en su router: se vuelve a encontrar tras un cambio de dirección, pero más rápido con una fija."
+      }
+    },
+    {
+      "key": "hosts",
+      "type": "string",
+      "default": "",
+      "label": {
+        "en": "IP addresses (optional)",
+        "fr": "Adresses IP (facultatif)",
+        "de": "IP-Adressen (optional)",
+        "es": "Direcciones IP (opcional)"
+      },
+      "placeholder": {
+        "en": "192.168.1.40, 192.168.1.41",
+        "fr": "192.168.1.40, 192.168.1.41",
+        "de": "192.168.1.40, 192.168.1.41",
+        "es": "192.168.1.40, 192.168.1.41"
+      },
+      "description": {
+        "en": "Only for devices the search does not find (another subnet, a network that blocks broadcasts). Separate them with commas.",
+        "fr": "Seulement pour les appareils que la recherche ne trouve pas (autre sous-réseau, réseau qui bloque la diffusion). Séparez-les par des virgules.",
+        "de": "Nur für Geräte, die die Suche nicht findet (anderes Subnetz, Netzwerk, das Broadcasts blockiert). Durch Kommas trennen.",
+        "es": "Solo para los dispositivos que la búsqueda no encuentra (otra subred, una red que bloquea la difusión). Sepárelas con comas."
+      }
+    },
+    {
+      "key": "poll_interval",
+      "type": "select",
+      "default": "30",
+      "label": {
+        "en": "State refresh",
+        "fr": "Actualisation de l’état",
+        "de": "Zustandsaktualisierung",
+        "es": "Actualización del estado"
+      },
+      "description": {
+        "en": "How often each device is asked for its state. Most devices also report their changes at once.",
+        "fr": "Fréquence à laquelle chaque appareil est interrogé. La plupart signalent aussi leurs changements immédiatement.",
+        "de": "Wie oft jedes Gerät nach seinem Zustand gefragt wird. Die meisten melden Änderungen auch sofort.",
+        "es": "Con qué frecuencia se consulta el estado de cada dispositivo. La mayoría también informa de sus cambios al instante."
+      },
+      "options": [
+        {
+          "value": "10",
+          "label": {
+            "en": "10 seconds",
+            "fr": "10 secondes",
+            "de": "10 Sekunden",
+            "es": "10 segundos"
+          }
+        },
+        {
+          "value": "30",
+          "label": {
+            "en": "30 seconds",
+            "fr": "30 secondes",
+            "de": "30 Sekunden",
+            "es": "30 segundos"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "1 minute",
+            "fr": "1 minute",
+            "de": "1 Minute",
+            "es": "1 minuto"
+          }
+        }
+      ]
+    },
+    {
+      "key": "rescan_interval",
+      "type": "select",
+      "default": "60",
+      "label": {
+        "en": "Automatic search",
+        "fr": "Recherche automatique",
+        "de": "Automatische Suche",
+        "es": "Búsqueda automática"
+      },
+      "description": {
+        "en": "Searches the network again on a schedule, to follow a device whose address changed. A device that stops answering triggers a search anyway.",
+        "fr": "Relance la recherche régulièrement, pour suivre un appareil dont l’adresse a changé. Un appareil qui ne répond plus déclenche de toute façon une recherche.",
+        "de": "Sucht das Netzwerk regelmäßig erneut ab, um einem Gerät mit geänderter Adresse zu folgen. Ein Gerät, das nicht mehr antwortet, löst ohnehin eine Suche aus.",
+        "es": "Vuelve a buscar en la red periódicamente para seguir a un dispositivo cuya dirección cambió. Un dispositivo que deja de responder lanza una búsqueda de todos modos."
+      },
+      "options": [
+        {
+          "value": "0",
+          "label": {
+            "en": "Off",
+            "fr": "Désactivée",
+            "de": "Aus",
+            "es": "Desactivada"
+          }
+        },
+        {
+          "value": "15",
+          "label": {
+            "en": "Every 15 minutes",
+            "fr": "Toutes les 15 minutes",
+            "de": "Alle 15 Minuten",
+            "es": "Cada 15 minutos"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "Every hour",
+            "fr": "Toutes les heures",
+            "de": "Jede Stunde",
+            "es": "Cada hora"
+          }
+        }
+      ]
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "default": "en",
+      "label": {
+        "en": "Language of the device texts",
+        "fr": "Langue des textes des appareils",
+        "de": "Sprache der Gerätetexte",
+        "es": "Idioma de los textos de los dispositivos"
+      },
+      "description": {
+        "en": "Feature names in the Discover tab and error messages of the scenes. Gladys does not send your language with them.",
+        "fr": "Noms des fonctionnalités dans l’onglet Découverte et messages d’erreur des scènes. Gladys n’envoie pas votre langue avec eux.",
+        "de": "Funktionsnamen im Tab Entdecken und Fehlermeldungen der Szenen. Gladys sendet Ihre Sprache nicht mit.",
+        "es": "Nombres de las funciones en la pestaña Descubrir y mensajes de error de las escenas. Gladys no envía su idioma con ellos."
+      },
+      "options": [
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais",
+            "de": "Englisch",
+            "es": "Inglés"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français",
+            "de": "Französisch",
+            "es": "Francés"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "German",
+            "fr": "Allemand",
+            "de": "Deutsch",
+            "es": "Alemán"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Spanish",
+            "fr": "Espagnol",
+            "de": "Spanisch",
+            "es": "Español"
+          }
+        }
+      ]
+    },
+    {
+      "key": "help",
+      "type": "section",
+      "label": {
+        "en": "A device is not found?",
+        "fr": "Un appareil n’est pas trouvé ?",
+        "de": "Ein Gerät wird nicht gefunden?",
+        "es": "¿No se encuentra un dispositivo?"
+      },
+      "description": {
+        "en": "Check that it answers in the Magic Home app over Wi-Fi, that it is on the same network as Gladys (not a guest network) and that the router lets UDP port 48899 and TCP port 5577 through. Otherwise type its IP address above.",
+        "fr": "Vérifiez qu’il répond dans l’application Magic Home en Wi-Fi, qu’il est sur le même réseau que Gladys (pas un réseau invité) et que la box laisse passer le port UDP 48899 et le port TCP 5577. Sinon, saisissez son adresse IP ci-dessus.",
+        "de": "Prüfen Sie, ob es in der Magic-Home-App über WLAN antwortet, im selben Netzwerk wie Gladys ist (kein Gastnetz) und der Router UDP-Port 48899 und TCP-Port 5577 durchlässt. Andernfalls geben Sie oben seine IP-Adresse ein.",
+        "es": "Compruebe que responde en la app Magic Home por Wi-Fi, que está en la misma red que Gladys (no una red de invitados) y que el router deja pasar el puerto UDP 48899 y el puerto TCP 5577. Si no, introduzca su dirección IP arriba."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "lights",
+      "icon": "sun",
+      "action_timeout_seconds": 30,
+      "label": {
+        "en": "Magic Home lights",
+        "fr": "Lumières Magic Home",
+        "de": "Magic-Home-Lichter",
+        "es": "Luces Magic Home"
+      },
+      "description": {
+        "en": "Every Magic Home device: on, off or not answering, brightness, effect.",
+        "fr": "Chaque appareil Magic Home : allumé, éteint ou injoignable, luminosité, effet.",
+        "de": "Jedes Magic-Home-Gerät: an, aus oder nicht erreichbar, Helligkeit, Effekt.",
+        "es": "Cada dispositivo Magic Home: encendido, apagado o sin respuesta, brillo, efecto."
+      },
+      "settings": [
+        {
+          "key": "show",
+          "type": "select",
+          "default": "all",
+          "label": {
+            "en": "Devices shown",
+            "fr": "Appareils affichés",
+            "de": "Angezeigte Geräte",
+            "es": "Dispositivos mostrados"
+          },
+          "options": [
+            {
+              "value": "all",
+              "label": {
+                "en": "All",
+                "fr": "Tous",
+                "de": "Alle",
+                "es": "Todos"
+              }
+            },
+            {
+              "value": "on",
+              "label": {
+                "en": "Only those on",
+                "fr": "Seulement ceux allumés",
+                "de": "Nur eingeschaltete",
+                "es": "Solo los encendidos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "light",
+      "icon": "zap",
+      "action_timeout_seconds": 30,
+      "label": {
+        "en": "Magic Home effects",
+        "fr": "Effets Magic Home",
+        "de": "Magic-Home-Effekte",
+        "es": "Efectos Magic Home"
+      },
+      "description": {
+        "en": "One light: state, brightness, on/off and three effect buttons of your choice.",
+        "fr": "Une lumière : état, luminosité, marche/arrêt et trois boutons d’effet au choix.",
+        "de": "Ein Licht: Zustand, Helligkeit, Ein/Aus und drei Effekttasten nach Wahl.",
+        "es": "Una luz: estado, brillo, encendido/apagado y tres botones de efecto a elegir."
+      },
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Light",
+            "fr": "Lumière",
+            "de": "Licht",
+            "es": "Luz"
+          }
+        },
+        {
+          "key": "effect_1",
+          "type": "select",
+          "default": "colorloop",
+          "label": {
+            "en": "First effect",
+            "fr": "Premier effet",
+            "de": "Erster Effekt",
+            "es": "Primer efecto"
+          },
+          "options": [
+            {
+              "value": "colorloop",
+              "label": {
+                "en": "Colour loop",
+                "fr": "Boucle de couleurs",
+                "de": "Farbschleife",
+                "es": "Ciclo de colores"
+              }
+            },
+            {
+              "value": "colorjump",
+              "label": {
+                "en": "Colour jump",
+                "fr": "Saut de couleurs",
+                "de": "Farbsprung",
+                "es": "Salto de colores"
+              }
+            },
+            {
+              "value": "colorstrobe",
+              "label": {
+                "en": "Colour strobe",
+                "fr": "Stroboscope multicolore",
+                "de": "Farbstroboskop",
+                "es": "Estroboscopio de colores"
+              }
+            },
+            {
+              "value": "rgb_cross_fade",
+              "label": {
+                "en": "Red, green, blue fade",
+                "fr": "Fondu rouge, vert, bleu",
+                "de": "Übergang Rot-Grün-Blau",
+                "es": "Fundido rojo-verde-azul"
+              }
+            },
+            {
+              "value": "rg_cross_fade",
+              "label": {
+                "en": "Red-green fade",
+                "fr": "Fondu rouge-vert",
+                "de": "Überblendung Rot-Grün",
+                "es": "Fundido rojo-verde"
+              }
+            },
+            {
+              "value": "rb_cross_fade",
+              "label": {
+                "en": "Red-blue fade",
+                "fr": "Fondu rouge-bleu",
+                "de": "Überblendung Rot-Blau",
+                "es": "Fundido rojo-azul"
+              }
+            },
+            {
+              "value": "gb_cross_fade",
+              "label": {
+                "en": "Green-blue fade",
+                "fr": "Fondu vert-bleu",
+                "de": "Überblendung Grün-Blau",
+                "es": "Fundido verde-azul"
+              }
+            },
+            {
+              "value": "red_fade",
+              "label": {
+                "en": "Red pulse",
+                "fr": "Pulsation rouge",
+                "de": "Rot pulsierend",
+                "es": "Pulso rojo"
+              }
+            },
+            {
+              "value": "green_fade",
+              "label": {
+                "en": "Green pulse",
+                "fr": "Pulsation verte",
+                "de": "Grün pulsierend",
+                "es": "Pulso verde"
+              }
+            },
+            {
+              "value": "blue_fade",
+              "label": {
+                "en": "Blue pulse",
+                "fr": "Pulsation bleue",
+                "de": "Blau pulsierend",
+                "es": "Pulso azul"
+              }
+            },
+            {
+              "value": "yellow_fade",
+              "label": {
+                "en": "Yellow pulse",
+                "fr": "Pulsation jaune",
+                "de": "Gelb pulsierend",
+                "es": "Pulso amarillo"
+              }
+            },
+            {
+              "value": "cyan_fade",
+              "label": {
+                "en": "Cyan pulse",
+                "fr": "Pulsation cyan",
+                "de": "Cyan pulsierend",
+                "es": "Pulso cian"
+              }
+            },
+            {
+              "value": "purple_fade",
+              "label": {
+                "en": "Purple pulse",
+                "fr": "Pulsation violette",
+                "de": "Lila pulsierend",
+                "es": "Pulso morado"
+              }
+            },
+            {
+              "value": "white_fade",
+              "label": {
+                "en": "White pulse",
+                "fr": "Pulsation blanche",
+                "de": "Weiß pulsierend",
+                "es": "Pulso blanco"
+              }
+            },
+            {
+              "value": "red_strobe",
+              "label": {
+                "en": "Red strobe",
+                "fr": "Stroboscope rouge",
+                "de": "Stroboskop Rot",
+                "es": "Estroboscopio rojo"
+              }
+            },
+            {
+              "value": "green_strobe",
+              "label": {
+                "en": "Green strobe",
+                "fr": "Stroboscope vert",
+                "de": "Stroboskop Grün",
+                "es": "Estroboscopio verde"
+              }
+            },
+            {
+              "value": "blue_strobe",
+              "label": {
+                "en": "Blue strobe",
+                "fr": "Stroboscope bleu",
+                "de": "Stroboskop Blau",
+                "es": "Estroboscopio azul"
+              }
+            },
+            {
+              "value": "yellow_strobe",
+              "label": {
+                "en": "Yellow strobe",
+                "fr": "Stroboscope jaune",
+                "de": "Stroboskop Gelb",
+                "es": "Estroboscopio amarillo"
+              }
+            },
+            {
+              "value": "cyan_strobe",
+              "label": {
+                "en": "Cyan strobe",
+                "fr": "Stroboscope cyan",
+                "de": "Stroboskop Cyan",
+                "es": "Estroboscopio cian"
+              }
+            },
+            {
+              "value": "purple_strobe",
+              "label": {
+                "en": "Purple strobe",
+                "fr": "Stroboscope violet",
+                "de": "Stroboskop Lila",
+                "es": "Estroboscopio morado"
+              }
+            },
+            {
+              "value": "white_strobe",
+              "label": {
+                "en": "White strobe",
+                "fr": "Stroboscope blanc",
+                "de": "Stroboskop Weiß",
+                "es": "Estroboscopio blanco"
+              }
+            },
+            {
+              "value": "cycle_rgb",
+              "label": {
+                "en": "Red, green, blue cycle",
+                "fr": "Cycle rouge, vert, bleu",
+                "de": "Zyklus Rot, Grün, Blau",
+                "es": "Ciclo rojo, verde, azul"
+              }
+            },
+            {
+              "value": "cycle_seven_colors",
+              "label": {
+                "en": "Seven colour cycle",
+                "fr": "Cycle sept couleurs",
+                "de": "Siebenfarbzyklus",
+                "es": "Ciclo de siete colores"
+              }
+            }
+          ]
+        },
+        {
+          "key": "effect_2",
+          "type": "select",
+          "default": "colorjump",
+          "label": {
+            "en": "Second effect",
+            "fr": "Deuxième effet",
+            "de": "Zweiter Effekt",
+            "es": "Segundo efecto"
+          },
+          "options": [
+            {
+              "value": "colorloop",
+              "label": {
+                "en": "Colour loop",
+                "fr": "Boucle de couleurs",
+                "de": "Farbschleife",
+                "es": "Ciclo de colores"
+              }
+            },
+            {
+              "value": "colorjump",
+              "label": {
+                "en": "Colour jump",
+                "fr": "Saut de couleurs",
+                "de": "Farbsprung",
+                "es": "Salto de colores"
+              }
+            },
+            {
+              "value": "colorstrobe",
+              "label": {
+                "en": "Colour strobe",
+                "fr": "Stroboscope multicolore",
+                "de": "Farbstroboskop",
+                "es": "Estroboscopio de colores"
+              }
+            },
+            {
+              "value": "rgb_cross_fade",
+              "label": {
+                "en": "Red, green, blue fade",
+                "fr": "Fondu rouge, vert, bleu",
+                "de": "Übergang Rot-Grün-Blau",
+                "es": "Fundido rojo-verde-azul"
+              }
+            },
+            {
+              "value": "rg_cross_fade",
+              "label": {
+                "en": "Red-green fade",
+                "fr": "Fondu rouge-vert",
+                "de": "Überblendung Rot-Grün",
+                "es": "Fundido rojo-verde"
+              }
+            },
+            {
+              "value": "rb_cross_fade",
+              "label": {
+                "en": "Red-blue fade",
+                "fr": "Fondu rouge-bleu",
+                "de": "Überblendung Rot-Blau",
+                "es": "Fundido rojo-azul"
+              }
+            },
+            {
+              "value": "gb_cross_fade",
+              "label": {
+                "en": "Green-blue fade",
+                "fr": "Fondu vert-bleu",
+                "de": "Überblendung Grün-Blau",
+                "es": "Fundido verde-azul"
+              }
+            },
+            {
+              "value": "red_fade",
+              "label": {
+                "en": "Red pulse",
+                "fr": "Pulsation rouge",
+                "de": "Rot pulsierend",
+                "es": "Pulso rojo"
+              }
+            },
+            {
+              "value": "green_fade",
+              "label": {
+                "en": "Green pulse",
+                "fr": "Pulsation verte",
+                "de": "Grün pulsierend",
+                "es": "Pulso verde"
+              }
+            },
+            {
+              "value": "blue_fade",
+              "label": {
+                "en": "Blue pulse",
+                "fr": "Pulsation bleue",
+                "de": "Blau pulsierend",
+                "es": "Pulso azul"
+              }
+            },
+            {
+              "value": "yellow_fade",
+              "label": {
+                "en": "Yellow pulse",
+                "fr": "Pulsation jaune",
+                "de": "Gelb pulsierend",
+                "es": "Pulso amarillo"
+              }
+            },
+            {
+              "value": "cyan_fade",
+              "label": {
+                "en": "Cyan pulse",
+                "fr": "Pulsation cyan",
+                "de": "Cyan pulsierend",
+                "es": "Pulso cian"
+              }
+            },
+            {
+              "value": "purple_fade",
+              "label": {
+                "en": "Purple pulse",
+                "fr": "Pulsation violette",
+                "de": "Lila pulsierend",
+                "es": "Pulso morado"
+              }
+            },
+            {
+              "value": "white_fade",
+              "label": {
+                "en": "White pulse",
+                "fr": "Pulsation blanche",
+                "de": "Weiß pulsierend",
+                "es": "Pulso blanco"
+              }
+            },
+            {
+              "value": "red_strobe",
+              "label": {
+                "en": "Red strobe",
+                "fr": "Stroboscope rouge",
+                "de": "Stroboskop Rot",
+                "es": "Estroboscopio rojo"
+              }
+            },
+            {
+              "value": "green_strobe",
+              "label": {
+                "en": "Green strobe",
+                "fr": "Stroboscope vert",
+                "de": "Stroboskop Grün",
+                "es": "Estroboscopio verde"
+              }
+            },
+            {
+              "value": "blue_strobe",
+              "label": {
+                "en": "Blue strobe",
+                "fr": "Stroboscope bleu",
+                "de": "Stroboskop Blau",
+                "es": "Estroboscopio azul"
+              }
+            },
+            {
+              "value": "yellow_strobe",
+              "label": {
+                "en": "Yellow strobe",
+                "fr": "Stroboscope jaune",
+                "de": "Stroboskop Gelb",
+                "es": "Estroboscopio amarillo"
+              }
+            },
+            {
+              "value": "cyan_strobe",
+              "label": {
+                "en": "Cyan strobe",
+                "fr": "Stroboscope cyan",
+                "de": "Stroboskop Cyan",
+                "es": "Estroboscopio cian"
+              }
+            },
+            {
+              "value": "purple_strobe",
+              "label": {
+                "en": "Purple strobe",
+                "fr": "Stroboscope violet",
+                "de": "Stroboskop Lila",
+                "es": "Estroboscopio morado"
+              }
+            },
+            {
+              "value": "white_strobe",
+              "label": {
+                "en": "White strobe",
+                "fr": "Stroboscope blanc",
+                "de": "Stroboskop Weiß",
+                "es": "Estroboscopio blanco"
+              }
+            },
+            {
+              "value": "cycle_rgb",
+              "label": {
+                "en": "Red, green, blue cycle",
+                "fr": "Cycle rouge, vert, bleu",
+                "de": "Zyklus Rot, Grün, Blau",
+                "es": "Ciclo rojo, verde, azul"
+              }
+            },
+            {
+              "value": "cycle_seven_colors",
+              "label": {
+                "en": "Seven colour cycle",
+                "fr": "Cycle sept couleurs",
+                "de": "Siebenfarbzyklus",
+                "es": "Ciclo de siete colores"
+              }
+            }
+          ]
+        },
+        {
+          "key": "effect_3",
+          "type": "select",
+          "default": "purple_fade",
+          "label": {
+            "en": "Third effect",
+            "fr": "Troisième effet",
+            "de": "Dritter Effekt",
+            "es": "Tercer efecto"
+          },
+          "options": [
+            {
+              "value": "colorloop",
+              "label": {
+                "en": "Colour loop",
+                "fr": "Boucle de couleurs",
+                "de": "Farbschleife",
+                "es": "Ciclo de colores"
+              }
+            },
+            {
+              "value": "colorjump",
+              "label": {
+                "en": "Colour jump",
+                "fr": "Saut de couleurs",
+                "de": "Farbsprung",
+                "es": "Salto de colores"
+              }
+            },
+            {
+              "value": "colorstrobe",
+              "label": {
+                "en": "Colour strobe",
+                "fr": "Stroboscope multicolore",
+                "de": "Farbstroboskop",
+                "es": "Estroboscopio de colores"
+              }
+            },
+            {
+              "value": "rgb_cross_fade",
+              "label": {
+                "en": "Red, green, blue fade",
+                "fr": "Fondu rouge, vert, bleu",
+                "de": "Übergang Rot-Grün-Blau",
+                "es": "Fundido rojo-verde-azul"
+              }
+            },
+            {
+              "value": "rg_cross_fade",
+              "label": {
+                "en": "Red-green fade",
+                "fr": "Fondu rouge-vert",
+                "de": "Überblendung Rot-Grün",
+                "es": "Fundido rojo-verde"
+              }
+            },
+            {
+              "value": "rb_cross_fade",
+              "label": {
+                "en": "Red-blue fade",
+                "fr": "Fondu rouge-bleu",
+                "de": "Überblendung Rot-Blau",
+                "es": "Fundido rojo-azul"
+              }
+            },
+            {
+              "value": "gb_cross_fade",
+              "label": {
+                "en": "Green-blue fade",
+                "fr": "Fondu vert-bleu",
+                "de": "Überblendung Grün-Blau",
+                "es": "Fundido verde-azul"
+              }
+            },
+            {
+              "value": "red_fade",
+              "label": {
+                "en": "Red pulse",
+                "fr": "Pulsation rouge",
+                "de": "Rot pulsierend",
+                "es": "Pulso rojo"
+              }
+            },
+            {
+              "value": "green_fade",
+              "label": {
+                "en": "Green pulse",
+                "fr": "Pulsation verte",
+                "de": "Grün pulsierend",
+                "es": "Pulso verde"
+              }
+            },
+            {
+              "value": "blue_fade",
+              "label": {
+                "en": "Blue pulse",
+                "fr": "Pulsation bleue",
+                "de": "Blau pulsierend",
+                "es": "Pulso azul"
+              }
+            },
+            {
+              "value": "yellow_fade",
+              "label": {
+                "en": "Yellow pulse",
+                "fr": "Pulsation jaune",
+                "de": "Gelb pulsierend",
+                "es": "Pulso amarillo"
+              }
+            },
+            {
+              "value": "cyan_fade",
+              "label": {
+                "en": "Cyan pulse",
+                "fr": "Pulsation cyan",
+                "de": "Cyan pulsierend",
+                "es": "Pulso cian"
+              }
+            },
+            {
+              "value": "purple_fade",
+              "label": {
+                "en": "Purple pulse",
+                "fr": "Pulsation violette",
+                "de": "Lila pulsierend",
+                "es": "Pulso morado"
+              }
+            },
+            {
+              "value": "white_fade",
+              "label": {
+                "en": "White pulse",
+                "fr": "Pulsation blanche",
+                "de": "Weiß pulsierend",
+                "es": "Pulso blanco"
+              }
+            },
+            {
+              "value": "red_strobe",
+              "label": {
+                "en": "Red strobe",
+                "fr": "Stroboscope rouge",
+                "de": "Stroboskop Rot",
+                "es": "Estroboscopio rojo"
+              }
+            },
+            {
+              "value": "green_strobe",
+              "label": {
+                "en": "Green strobe",
+                "fr": "Stroboscope vert",
+                "de": "Stroboskop Grün",
+                "es": "Estroboscopio verde"
+              }
+            },
+            {
+              "value": "blue_strobe",
+              "label": {
+                "en": "Blue strobe",
+                "fr": "Stroboscope bleu",
+                "de": "Stroboskop Blau",
+                "es": "Estroboscopio azul"
+              }
+            },
+            {
+              "value": "yellow_strobe",
+              "label": {
+                "en": "Yellow strobe",
+                "fr": "Stroboscope jaune",
+                "de": "Stroboskop Gelb",
+                "es": "Estroboscopio amarillo"
+              }
+            },
+            {
+              "value": "cyan_strobe",
+              "label": {
+                "en": "Cyan strobe",
+                "fr": "Stroboscope cyan",
+                "de": "Stroboskop Cyan",
+                "es": "Estroboscopio cian"
+              }
+            },
+            {
+              "value": "purple_strobe",
+              "label": {
+                "en": "Purple strobe",
+                "fr": "Stroboscope violet",
+                "de": "Stroboskop Lila",
+                "es": "Estroboscopio morado"
+              }
+            },
+            {
+              "value": "white_strobe",
+              "label": {
+                "en": "White strobe",
+                "fr": "Stroboscope blanc",
+                "de": "Stroboskop Weiß",
+                "es": "Estroboscopio blanco"
+              }
+            },
+            {
+              "value": "cycle_rgb",
+              "label": {
+                "en": "Red, green, blue cycle",
+                "fr": "Cycle rouge, vert, bleu",
+                "de": "Zyklus Rot, Grün, Blau",
+                "es": "Ciclo rojo, verde, azul"
+              }
+            },
+            {
+              "value": "cycle_seven_colors",
+              "label": {
+                "en": "Seven colour cycle",
+                "fr": "Cycle sept couleurs",
+                "de": "Siebenfarbzyklus",
+                "es": "Ciclo de siete colores"
+              }
+            }
+          ]
+        },
+        {
+          "key": "speed",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "default": 50,
+          "label": {
+            "en": "Speed (%)",
+            "fr": "Vitesse (%)",
+            "de": "Geschwindigkeit (%)",
+            "es": "Velocidad (%)"
+          },
+          "description": {
+            "en": "0: slowest, 100: fastest.",
+            "fr": "0 : la plus lente, 100 : la plus rapide.",
+            "de": "0: am langsamsten, 100: am schnellsten.",
+            "es": "0: la más lenta, 100: la más rápida."
+          }
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "light_offline",
+      "label": {
+        "en": "A Magic Home device stops answering",
+        "fr": "Un appareil Magic Home ne répond plus",
+        "de": "Ein Magic-Home-Gerät antwortet nicht mehr",
+        "es": "Un dispositivo Magic Home deja de responder"
+      },
+      "description": {
+        "en": "Unplugged, switched off at the wall or out of Wi-Fi for more than 30 seconds.",
+        "fr": "Débranché, coupé à l’interrupteur ou hors Wi-Fi depuis plus de 30 secondes.",
+        "de": "Ausgesteckt, am Wandschalter aus oder seit über 30 Sekunden ohne WLAN.",
+        "es": "Desenchufado, apagado en el interruptor o sin Wi-Fi durante más de 30 segundos."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Light",
+            "fr": "Lumière",
+            "de": "Licht",
+            "es": "Luz"
+          },
+          "description": {
+            "en": "Empty: any Magic Home device.",
+            "fr": "Vide : n’importe quel appareil Magic Home.",
+            "de": "Leer: jedes Magic-Home-Gerät.",
+            "es": "Vacío: cualquier dispositivo Magic Home."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "ip",
+          "type": "string",
+          "label": {
+            "en": "IP address",
+            "fr": "Adresse IP",
+            "de": "IP-Adresse",
+            "es": "Dirección IP"
+          }
+        }
+      ]
+    },
+    {
+      "key": "light_online",
+      "label": {
+        "en": "A Magic Home device answers again",
+        "fr": "Un appareil Magic Home répond à nouveau",
+        "de": "Ein Magic-Home-Gerät antwortet wieder",
+        "es": "Un dispositivo Magic Home vuelve a responder"
+      },
+      "description": {
+        "en": "After it stopped answering: power came back, Wi-Fi reconnected.",
+        "fr": "Après une absence de réponse : retour du courant, Wi-Fi reconnecté.",
+        "de": "Nachdem es nicht antwortete: Strom zurück, WLAN wieder verbunden.",
+        "es": "Después de no responder: vuelve la corriente, Wi-Fi reconectado."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Light",
+            "fr": "Lumière",
+            "de": "Licht",
+            "es": "Luz"
+          },
+          "description": {
+            "en": "Empty: any Magic Home device.",
+            "fr": "Vide : n’importe quel appareil Magic Home.",
+            "de": "Leer: jedes Magic-Home-Gerät.",
+            "es": "Vacío: cualquier dispositivo Magic Home."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "ip",
+          "type": "string",
+          "label": {
+            "en": "IP address",
+            "fr": "Adresse IP",
+            "de": "IP-Adresse",
+            "es": "Dirección IP"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "start_effect",
+      "timeout_seconds": 20,
+      "label": {
+        "en": "Start a Magic Home effect",
+        "fr": "Lancer un effet Magic Home",
+        "de": "Magic-Home-Effekt starten",
+        "es": "Iniciar un efecto Magic Home"
+      },
+      "description": {
+        "en": "A built-in effect of the bulb or controller (colour loop, strobe, pulse…).",
+        "fr": "Un effet intégré de l’ampoule ou du contrôleur (boucle de couleurs, stroboscope, pulsation…).",
+        "de": "Ein eingebauter Effekt der Lampe oder des Controllers (Farbschleife, Stroboskop, Pulsieren…).",
+        "es": "Un efecto integrado de la bombilla o del controlador (ciclo de colores, estroboscopio, pulso…)."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Light",
+            "fr": "Lumière",
+            "de": "Licht",
+            "es": "Luz"
+          }
+        },
+        {
+          "key": "effect",
+          "type": "select",
+          "required": true,
+          "default": "colorloop",
+          "label": {
+            "en": "Effect",
+            "fr": "Effet",
+            "de": "Effekt",
+            "es": "Efecto"
+          },
+          "options": [
+            {
+              "value": "colorloop",
+              "label": {
+                "en": "Colour loop",
+                "fr": "Boucle de couleurs",
+                "de": "Farbschleife",
+                "es": "Ciclo de colores"
+              }
+            },
+            {
+              "value": "colorjump",
+              "label": {
+                "en": "Colour jump",
+                "fr": "Saut de couleurs",
+                "de": "Farbsprung",
+                "es": "Salto de colores"
+              }
+            },
+            {
+              "value": "colorstrobe",
+              "label": {
+                "en": "Colour strobe",
+                "fr": "Stroboscope multicolore",
+                "de": "Farbstroboskop",
+                "es": "Estroboscopio de colores"
+              }
+            },
+            {
+              "value": "rgb_cross_fade",
+              "label": {
+                "en": "Red, green, blue fade",
+                "fr": "Fondu rouge, vert, bleu",
+                "de": "Übergang Rot-Grün-Blau",
+                "es": "Fundido rojo-verde-azul"
+              }
+            },
+            {
+              "value": "rg_cross_fade",
+              "label": {
+                "en": "Red-green fade",
+                "fr": "Fondu rouge-vert",
+                "de": "Überblendung Rot-Grün",
+                "es": "Fundido rojo-verde"
+              }
+            },
+            {
+              "value": "rb_cross_fade",
+              "label": {
+                "en": "Red-blue fade",
+                "fr": "Fondu rouge-bleu",
+                "de": "Überblendung Rot-Blau",
+                "es": "Fundido rojo-azul"
+              }
+            },
+            {
+              "value": "gb_cross_fade",
+              "label": {
+                "en": "Green-blue fade",
+                "fr": "Fondu vert-bleu",
+                "de": "Überblendung Grün-Blau",
+                "es": "Fundido verde-azul"
+              }
+            },
+            {
+              "value": "red_fade",
+              "label": {
+                "en": "Red pulse",
+                "fr": "Pulsation rouge",
+                "de": "Rot pulsierend",
+                "es": "Pulso rojo"
+              }
+            },
+            {
+              "value": "green_fade",
+              "label": {
+                "en": "Green pulse",
+                "fr": "Pulsation verte",
+                "de": "Grün pulsierend",
+                "es": "Pulso verde"
+              }
+            },
+            {
+              "value": "blue_fade",
+              "label": {
+                "en": "Blue pulse",
+                "fr": "Pulsation bleue",
+                "de": "Blau pulsierend",
+                "es": "Pulso azul"
+              }
+            },
+            {
+              "value": "yellow_fade",
+              "label": {
+                "en": "Yellow pulse",
+                "fr": "Pulsation jaune",
+                "de": "Gelb pulsierend",
+                "es": "Pulso amarillo"
+              }
+            },
+            {
+              "value": "cyan_fade",
+              "label": {
+                "en": "Cyan pulse",
+                "fr": "Pulsation cyan",
+                "de": "Cyan pulsierend",
+                "es": "Pulso cian"
+              }
+            },
+            {
+              "value": "purple_fade",
+              "label": {
+                "en": "Purple pulse",
+                "fr": "Pulsation violette",
+                "de": "Lila pulsierend",
+                "es": "Pulso morado"
+              }
+            },
+            {
+              "value": "white_fade",
+              "label": {
+                "en": "White pulse",
+                "fr": "Pulsation blanche",
+                "de": "Weiß pulsierend",
+                "es": "Pulso blanco"
+              }
+            },
+            {
+              "value": "red_strobe",
+              "label": {
+                "en": "Red strobe",
+                "fr": "Stroboscope rouge",
+                "de": "Stroboskop Rot",
+                "es": "Estroboscopio rojo"
+              }
+            },
+            {
+              "value": "green_strobe",
+              "label": {
+                "en": "Green strobe",
+                "fr": "Stroboscope vert",
+                "de": "Stroboskop Grün",
+                "es": "Estroboscopio verde"
+              }
+            },
+            {
+              "value": "blue_strobe",
+              "label": {
+                "en": "Blue strobe",
+                "fr": "Stroboscope bleu",
+                "de": "Stroboskop Blau",
+                "es": "Estroboscopio azul"
+              }
+            },
+            {
+              "value": "yellow_strobe",
+              "label": {
+                "en": "Yellow strobe",
+                "fr": "Stroboscope jaune",
+                "de": "Stroboskop Gelb",
+                "es": "Estroboscopio amarillo"
+              }
+            },
+            {
+              "value": "cyan_strobe",
+              "label": {
+                "en": "Cyan strobe",
+                "fr": "Stroboscope cyan",
+                "de": "Stroboskop Cyan",
+                "es": "Estroboscopio cian"
+              }
+            },
+            {
+              "value": "purple_strobe",
+              "label": {
+                "en": "Purple strobe",
+                "fr": "Stroboscope violet",
+                "de": "Stroboskop Lila",
+                "es": "Estroboscopio morado"
+              }
+            },
+            {
+              "value": "white_strobe",
+              "label": {
+                "en": "White strobe",
+                "fr": "Stroboscope blanc",
+                "de": "Stroboskop Weiß",
+                "es": "Estroboscopio blanco"
+              }
+            },
+            {
+              "value": "cycle_rgb",
+              "label": {
+                "en": "Red, green, blue cycle",
+                "fr": "Cycle rouge, vert, bleu",
+                "de": "Zyklus Rot, Grün, Blau",
+                "es": "Ciclo rojo, verde, azul"
+              }
+            },
+            {
+              "value": "cycle_seven_colors",
+              "label": {
+                "en": "Seven colour cycle",
+                "fr": "Cycle sept couleurs",
+                "de": "Siebenfarbzyklus",
+                "es": "Ciclo de siete colores"
+              }
+            }
+          ]
+        },
+        {
+          "key": "speed",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "default": 50,
+          "label": {
+            "en": "Speed (%)",
+            "fr": "Vitesse (%)",
+            "de": "Geschwindigkeit (%)",
+            "es": "Velocidad (%)"
+          },
+          "description": {
+            "en": "0: slowest, 100: fastest.",
+            "fr": "0 : la plus lente, 100 : la plus rapide.",
+            "de": "0: am langsamsten, 100: am schnellsten.",
+            "es": "0: la más lenta, 100: la más rápida."
+          }
+        },
+        {
+          "key": "brightness",
+          "type": "number",
+          "min": 1,
+          "max": 100,
+          "default": 100,
+          "label": {
+            "en": "Brightness (%)",
+            "fr": "Luminosité (%)",
+            "de": "Helligkeit (%)",
+            "es": "Brillo (%)"
+          },
+          "description": {
+            "en": "Only on recent firmwares; the others play effects at full brightness.",
+            "fr": "Seulement sur les firmwares récents ; les autres jouent les effets à pleine luminosité.",
+            "de": "Nur bei neueren Firmwares; die anderen spielen Effekte mit voller Helligkeit.",
+            "es": "Solo en firmwares recientes; los demás reproducen los efectos a pleno brillo."
+          }
+        }
+      ]
+    },
+    {
+      "key": "custom_effect",
+      "timeout_seconds": 20,
+      "label": {
+        "en": "Play Magic Home colours",
+        "fr": "Jouer des couleurs Magic Home",
+        "de": "Magic-Home-Farben abspielen",
+        "es": "Reproducir colores Magic Home"
+      },
+      "description": {
+        "en": "Up to 16 colours of your choice, in a loop.",
+        "fr": "Jusqu’à 16 couleurs au choix, en boucle.",
+        "de": "Bis zu 16 Farben nach Wahl, in Schleife.",
+        "es": "Hasta 16 colores a elegir, en bucle."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Light",
+            "fr": "Lumière",
+            "de": "Licht",
+            "es": "Luz"
+          }
+        },
+        {
+          "key": "colors",
+          "type": "string",
+          "required": true,
+          "label": {
+            "en": "Colours",
+            "fr": "Couleurs",
+            "de": "Farben",
+            "es": "Colores"
+          },
+          "placeholder": {
+            "en": "#FF0000, #00FF00, #0000FF",
+            "fr": "#FF0000, #00FF00, #0000FF",
+            "de": "#FF0000, #00FF00, #0000FF",
+            "es": "#FF0000, #00FF00, #0000FF"
+          },
+          "description": {
+            "en": "Hexadecimal colours separated by commas.",
+            "fr": "Couleurs hexadécimales séparées par des virgules.",
+            "de": "Hexadezimale Farben, durch Kommas getrennt.",
+            "es": "Colores hexadecimales separados por comas."
+          }
+        },
+        {
+          "key": "transition",
+          "type": "select",
+          "default": "gradual",
+          "label": {
+            "en": "Transition",
+            "fr": "Transition",
+            "de": "Übergang",
+            "es": "Transición"
+          },
+          "options": [
+            {
+              "value": "gradual",
+              "label": {
+                "en": "Fade",
+                "fr": "Fondu",
+                "de": "Überblenden",
+                "es": "Fundido"
+              }
+            },
+            {
+              "value": "jump",
+              "label": {
+                "en": "Jump",
+                "fr": "Saut",
+                "de": "Sprung",
+                "es": "Salto"
+              }
+            },
+            {
+              "value": "strobe",
+              "label": {
+                "en": "Strobe",
+                "fr": "Stroboscope",
+                "de": "Stroboskop",
+                "es": "Estroboscopio"
+              }
+            }
+          ]
+        },
+        {
+          "key": "speed",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "default": 50,
+          "label": {
+            "en": "Speed (%)",
+            "fr": "Vitesse (%)",
+            "de": "Geschwindigkeit (%)",
+            "es": "Velocidad (%)"
+          },
+          "description": {
+            "en": "0: slowest, 100: fastest.",
+            "fr": "0 : la plus lente, 100 : la plus rapide.",
+            "de": "0: am langsamsten, 100: am schnellsten.",
+            "es": "0: la más lenta, 100: la más rápida."
+          }
+        }
+      ]
+    },
+    {
+      "key": "flash",
+      "timeout_seconds": 20,
+      "label": {
+        "en": "Flash a Magic Home light",
+        "fr": "Faire clignoter une lumière Magic Home",
+        "de": "Magic-Home-Licht blinken lassen",
+        "es": "Hacer parpadear una luz Magic Home"
+      },
+      "description": {
+        "en": "Blinks a colour for a few seconds, then the light comes back as it was.",
+        "fr": "Fait clignoter une couleur quelques secondes, puis la lumière revient comme avant.",
+        "de": "Lässt eine Farbe einige Sekunden blinken, dann kehrt das Licht in den vorherigen Zustand zurück.",
+        "es": "Hace parpadear un color unos segundos y luego la luz vuelve a su estado anterior."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Light",
+            "fr": "Lumière",
+            "de": "Licht",
+            "es": "Luz"
+          }
+        },
+        {
+          "key": "color",
+          "type": "string",
+          "default": "#FF0000",
+          "label": {
+            "en": "Colour",
+            "fr": "Couleur",
+            "de": "Farbe",
+            "es": "Color"
+          },
+          "placeholder": {
+            "en": "#FF0000",
+            "fr": "#FF0000",
+            "de": "#FF0000",
+            "es": "#FF0000"
+          }
+        },
+        {
+          "key": "duration_seconds",
+          "type": "number",
+          "min": 1,
+          "max": 60,
+          "default": 5,
+          "label": {
+            "en": "Duration (seconds)",
+            "fr": "Durée (secondes)",
+            "de": "Dauer (Sekunden)",
+            "es": "Duración (segundos)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "stop_effect",
+      "timeout_seconds": 20,
+      "label": {
+        "en": "Stop a Magic Home effect",
+        "fr": "Arrêter un effet Magic Home",
+        "de": "Magic-Home-Effekt beenden",
+        "es": "Detener un efecto Magic Home"
+      },
+      "description": {
+        "en": "Back to the last steady colour or white.",
+        "fr": "Retour à la dernière couleur ou au dernier blanc fixe.",
+        "de": "Zurück zur letzten festen Farbe oder zum letzten Weiß.",
+        "es": "Vuelve al último color o blanco fijo."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Light",
+            "fr": "Lumière",
+            "de": "Licht",
+            "es": "Luz"
+          }
+        }
+      ]
+    }
+  ]
+}

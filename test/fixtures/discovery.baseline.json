@@ -1,0 +1,1304 @@
+{
+  "0x01": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000001:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000001:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000001:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x02": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000002:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000002:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x03": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000003:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000003:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000003:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x04": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000004:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000004:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000004:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x06": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000006:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000006:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000006:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x07": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000007:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000007:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000007:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000007:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x08": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000008:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000008:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000008:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x09": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000009:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000009:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000009:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x0b": [
+    {
+      "external_id": "ext:test-integration:device:b4e84200000b:power",
+      "category": "switch",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x0e": [
+    {
+      "external_id": "ext:test-integration:device:b4e84200000e:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200000e:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200000e:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200000e:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x10": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000010:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000010:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000010:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x16": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000016:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000016:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000016:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x17": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000017:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000017:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x18": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000018:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x19": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000019:power",
+      "category": "switch",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x1a": [
+    {
+      "external_id": "ext:test-integration:device:b4e84200001a:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001a:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001a:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x1b": [
+    {
+      "external_id": "ext:test-integration:device:b4e84200001b:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001b:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001b:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x1c": [
+    {
+      "external_id": "ext:test-integration:device:b4e84200001c:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001c:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001c:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x1d": [
+    {
+      "external_id": "ext:test-integration:device:b4e84200001d:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001d:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x1e": [
+    {
+      "external_id": "ext:test-integration:device:b4e84200001e:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001e:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001e:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e84200001e:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x21": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000021:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000021:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x25": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000025:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000025:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000025:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000025:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x33": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000033:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000033:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000033:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x35": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000035:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000035:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000035:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000035:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x41": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000041:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000041:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x44": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000044:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000044:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000044:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x45": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000045:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000045:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000045:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x52": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000052:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000052:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000052:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x54": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000054:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000054:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000054:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x62": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000062:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000062:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000062:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x81": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000081:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000081:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000081:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x93": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000093:power",
+      "category": "switch",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x94": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000094:power",
+      "category": "switch",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x95": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000095:power",
+      "category": "switch",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x96": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000096:power",
+      "category": "switch",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x97": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000097:power",
+      "category": "switch",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xa1": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a1:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a1:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a1:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xa2": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a2:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a2:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a2:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xa3": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a3:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a3:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a3:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xa4": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a4:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a4:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a4:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xa6": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a6:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a6:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a6:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xa7": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a7:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a7:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000a7:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xb6": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000b6:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000b6:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000b6:color",
+      "category": "light",
+      "type": "color",
+      "unit": null,
+      "min": 0,
+      "max": 16777215,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xe1": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000e1:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000e1:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000e1:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0xe2": [
+    {
+      "external_id": "ext:test-integration:device:b4e8420000e2:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000e2:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e8420000e2:temperature",
+      "category": "light",
+      "type": "temperature",
+      "unit": null,
+      "min": 154,
+      "max": 370,
+      "step": null,
+      "read_only": false
+    }
+  ],
+  "0x77": [
+    {
+      "external_id": "ext:test-integration:device:b4e842000077:power",
+      "category": "light",
+      "type": "binary",
+      "unit": null,
+      "min": 0,
+      "max": 1,
+      "step": null,
+      "read_only": false
+    },
+    {
+      "external_id": "ext:test-integration:device:b4e842000077:brightness",
+      "category": "light",
+      "type": "brightness",
+      "unit": "percent",
+      "min": 0,
+      "max": 100,
+      "step": null,
+      "read_only": false
+    }
+  ]
+}

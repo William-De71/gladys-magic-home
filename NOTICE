@@ -1,0 +1,17 @@
+gladys-magic-home
+Copyright 2026 William-De71
+
+This product includes software developed by William-De71
+(https://github.com/William-De71/gladys-magic-home), licensed under the Apache
+License, Version 2.0.
+
+The Magic Home protocol implementation (src/magichome/) was written for this
+project. The open-source flux_led library
+(https://github.com/lightinglibs/flux_led), used by the Home Assistant "Magic
+Home" integration, served as the reference for the frame layouts, the model
+numbers and the effect codes; no code was copied from it.
+
+Magic Home, Zengge and Surplife are trademarks of their respective owners.
+This project is not affiliated with, endorsed or supported by them. It talks
+to the devices with the same local protocol as the Magic Home app, which a
+firmware update may change without notice.

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" font-family="Inter, 'DejaVu Sans', Arial, sans-serif">
+  <title>Architecture of the Magic Home integration for Gladys Assistant (illustration)</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#46505a"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="460" fill="#ffffff"/>
+  <text x="980" y="452" text-anchor="end" font-size="12" fill="#8a949e">illustration</text>
+
+  <!-- Gladys -->
+  <rect x="20" y="40" width="230" height="320" rx="14" fill="#eef4fb" stroke="#2979d6" stroke-width="2"/>
+  <text x="135" y="72" text-anchor="middle" font-size="20" font-weight="700" fill="#1d4f8c">Gladys Assistant</text>
+  <g font-size="14" fill="#24303c">
+    <rect x="38" y="92" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="116" text-anchor="middle">Devices, Discover tab</text>
+    <rect x="38" y="140" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="164" text-anchor="middle">Network discovery</text>
+    <rect x="38" y="188" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="212" text-anchor="middle">Scenes: triggers, actions</text>
+    <rect x="38" y="236" width="194" height="58" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="260" text-anchor="middle">“Magic Home lights” and</text>
+    <text x="135" y="280" text-anchor="middle">“Magic Home effects”</text>
+    <rect x="38" y="304" width="194" height="38" rx="8" fill="#ffffff" stroke="#b9cde6"/>
+    <text x="135" y="328" text-anchor="middle">Configuration</text>
+  </g>
+
+  <!-- Link Gladys / container -->
+  <line x1="256" y1="200" x2="354" y2="200" stroke="#46505a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="305" y="172" text-anchor="middle" font-size="12" fill="#46505a">REST</text>
+  <text x="305" y="187" text-anchor="middle" font-size="11" fill="#46505a">/api/integration/v1</text>
+  <text x="305" y="222" text-anchor="middle" font-size="12" fill="#46505a">+ WebSocket</text>
+
+  <!-- Container -->
+  <rect x="360" y="40" width="260" height="320" rx="14" fill="#f3f7ef" stroke="#4c8c2b" stroke-width="2"/>
+  <text x="490" y="72" text-anchor="middle" font-size="20" font-weight="700" fill="#2f5d16">Integration container</text>
+  <g font-size="14" fill="#24303c">
+    <rect x="378" y="92" width="224" height="58" rx="8" fill="#ffffff" stroke="#bdd6ad"/>
+    <text x="490" y="116" text-anchor="middle">Node.js + Gladys SDK</text>
+    <text x="490" y="136" text-anchor="middle">src/app.js: poll, states, scenes</text>
+    <rect x="378" y="160" width="224" height="58" rx="8" fill="#ffffff" stroke="#bdd6ad"/>
+    <text x="490" y="184" text-anchor="middle">src/magichome/</text>
+    <text x="490" y="204" text-anchor="middle">frames, models, TCP client</text>
+    <rect x="378" y="228" width="224" height="58" rx="8" fill="#ffffff" stroke="#bdd6ad"/>
+    <text x="490" y="252" text-anchor="middle">/data: devices seen</text>
+    <text x="490" y="272" text-anchor="middle">(MAC, last address, model)</text>
+    <text x="490" y="320" text-anchor="middle" font-size="12" fill="#46505a">read-only rootfs, 256 MB, non-root</text>
+  </g>
+
+  <!-- Link container / devices -->
+  <line x1="626" y1="200" x2="724" y2="200" stroke="#46505a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="675" y="180" text-anchor="middle" font-size="12" fill="#46505a">TCP 5577</text>
+  <text x="675" y="222" text-anchor="middle" font-size="12" fill="#46505a">local network</text>
+  <!-- Discovery: broadcast by the core (network=host) -->
+  <path d="M135 360 C 135 425, 855 425, 855 364" fill="none" stroke="#7a5cff" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <text x="495" y="440" text-anchor="middle" font-size="12" fill="#5a3fd6">UDP 48899 “HF-A11ASSISTHREAD” broadcast by Gladys → ip, MAC, model</text>
+
+  <!-- Devices -->
+  <rect x="730" y="40" width="250" height="320" rx="14" fill="#f6f1fd" stroke="#7a5cff" stroke-width="2"/>
+  <text x="855" y="72" text-anchor="middle" font-size="20" font-weight="700" fill="#4a2fb0">Magic Home devices</text>
+  <g font-size="14" fill="#24303c">
+    <rect x="748" y="92" width="214" height="58" rx="8" fill="#ffffff" stroke="#d3c7f7"/>
+    <text x="855" y="116" text-anchor="middle">Wi-Fi module</text>
+    <text x="855" y="136" text-anchor="middle">(same LAN as Gladys)</text>
+    <rect x="748" y="160" width="214" height="182" rx="8" fill="#ffffff" stroke="#d3c7f7"/>
+    <text x="855" y="186" text-anchor="middle" font-weight="700">Zengge firmwares</text>
+    <text x="855" y="212" text-anchor="middle">RGB, RGBW, RGBCW bulbs</text>
+    <text x="855" y="236" text-anchor="middle">LED strip controllers</text>
+    <text x="855" y="260" text-anchor="middle">CCT and dimmable lights</text>
+    <text x="855" y="284" text-anchor="middle">addressable strips</text>
+    <text x="855" y="308" text-anchor="middle">sockets, switches</text>
+    <text x="855" y="332" text-anchor="middle" font-size="12" fill="#46505a">no cloud involved</text>
+  </g>
+</svg>

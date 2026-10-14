@@ -1,0 +1,26 @@
+# -----------------------------------------------------------------------------
+# Dependabot: update pull requests, checked by the CI like any other.
+#
+#   - npm, weekly: the Gladys SDK (new device categories and features arrive
+#     through it) in its own PR, the development tools in one PR;
+#   - GitHub Actions, monthly.
+#
+# The Docker base image is left out on purpose: `node:24-trixie-slim` is a
+# moving tag, pulled fresh by every release build, and moving to the next Node
+# or Debian major is a deliberate change (Dockerfile, CI matrix and `engines`
+# together).
+# -----------------------------------------------------------------------------
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      dev-dependencies:
+        dependency-type: development
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

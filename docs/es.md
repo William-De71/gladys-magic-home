@@ -1,0 +1,78 @@
+# Magic Home
+
+## Presentación
+
+Esta integración lleva sus dispositivos Wi-Fi **Magic Home** a Gladys: bombillas de color y blancas, controladores de tiras LED, luces CCT y regulables, tiras direccionables, guirnaldas, enchufes e interruptores — los dispositivos configurados con las apps Magic Home Pro, Zengge o Surplife. Los enciende y apaga, ajusta su color, su blanco y su brillo desde el panel, inicia sus efectos integrados desde sus escenas, y sus escenas saben cuándo un dispositivo deja de responder.
+
+Todo se queda en su **red local**: sin cuenta, sin nube, nada sale de su casa. Gladys encuentra los dispositivos por sí solo con la búsqueda de la app Magic Home (puerto UDP 48899) y luego la integración habla directamente con cada uno (puerto TCP 5577).
+
+## Requisitos
+
+- Gladys Assistant 5.1.1 o posterior.
+- Dispositivos configurados con la app Magic Home Pro (o Zengge, Surplife…) y conectados a la **misma red que Gladys**. Una red de invitados o un router que aísla a los clientes Wi-Fi los bloquea.
+- En la pantalla de instalación, acepte el **descubrimiento de red** (puerto UDP 48899): es lo que permite a Gladys encontrar los dispositivos.
+
+## Configuración
+
+### Búsqueda
+
+En la mayoría de las casas no hay nada que rellenar: pulse **Buscar y probar los dispositivos**. El mensaje lista cada dispositivo encontrado con su dirección, su modelo y si responde.
+
+Un dispositivo que la búsqueda no encuentra (otra subred, una red que filtra la difusión): introduzca su dirección en **Direcciones IP**, separadas por comas, y guarde.
+
+Asigne a cada dispositivo una **dirección IP fija** en su router: la integración vuelve a encontrar un dispositivo cuya dirección cambió (gracias a su dirección MAC), pero antes con una dirección fija.
+
+### Actualización e idioma
+
+- **Actualización del estado**: se consulta cada dispositivo cada 10 segundos, 30 segundos (por defecto) o 1 minuto. La mayoría de los dispositivos también comunica sus cambios al instante (mando a distancia, app Magic Home).
+- **Búsqueda automática**: la red se vuelve a recorrer cada hora (por defecto), cada 15 minutos o nunca; un dispositivo que deja de responder lanza una búsqueda de todos modos.
+- **Idioma de los textos de los dispositivos**: los nombres de las funciones en la pestaña Descubrir y los mensajes de error de las escenas se escriben en este idioma, porque Gladys no envía el suyo con ellos.
+
+## Uso
+
+### Dispositivos
+
+Abra la pestaña **Descubrir** de la integración: cada dispositivo encontrado aparece con las funciones que permiten su modelo y su cableado. Añada los que quiera y renómbrelos a su gusto.
+
+- Bombillas de color y blancas, controladores RGB&CCT: **Encendido/apagado**, **Brillo**, **Color**, **Temperatura de color**.
+- Controladores y bombillas RGB, RGBW y RGB/W, tiras direccionables, guirnaldas: **Encendido/apagado**, **Brillo**, **Color** (un color blanco enciende los LED blancos de un dispositivo RGB+W).
+- Bombillas y controladores CCT: **Encendido/apagado**, **Brillo**, **Temperatura de color**.
+- Controladores monocolor, bombillas regulables: **Encendido/apagado**, **Brillo**.
+- Enchufes e interruptores: **Encendido/apagado**.
+
+Un color y un blanco son alternativas: elegir un color enciende los LED de color y elegir una temperatura enciende los LED blancos, como hace la app Magic Home. Cada dispositivo muestra una insignia **local**, o **sin respuesta** cuando no responde.
+
+### Widgets
+
+![Los widgets «Luces Magic Home» y «Efectos Magic Home»: cinco dispositivos con su estado y su brillo, la lámpara del salón reproduciendo el ciclo de colores con sus botones de efecto (ilustración generada, no es una captura de pantalla)](https://raw.githubusercontent.com/William-De71/gladys-magic-home/main/docs/assets/widgets.es.png)
+
+- **Luces Magic Home**: cuántos dispositivos están encendidos, cuántos no responden, cada dispositivo con su estado, su brillo y lo que reproduce, un botón **Apagar todo** (con confirmación) y **Actualizar**. Ajuste: todos los dispositivos o solo los encendidos.
+- **Efectos Magic Home**: una luz elegida en los ajustes, su estado, su modo y su brillo, un botón de encendido/apagado y tres botones de efecto que elige en los ajustes (con su velocidad). Mientras se reproduce un efecto, el tercer botón pasa a ser **Fija**.
+
+### Disparadores de escena
+
+- **Un dispositivo Magic Home deja de responder**: desenchufado, apagado en el interruptor o sin Wi-Fi durante más de 30 segundos.
+- **Un dispositivo Magic Home vuelve a responder**: después de no responder.
+
+Ambos pueden limitarse a un dispositivo y dan `device_name` e `ip` a la escena.
+
+### Acciones de escena
+
+- **Iniciar un efecto Magic Home**: uno de los 23 efectos integrados (ciclo de colores, saltos, pulsos, estroboscopios…), su velocidad y, en los firmwares recientes, su brillo.
+- **Reproducir colores Magic Home**: hasta 16 colores a elegir (`#FF0000, #0000FF`), en fundido, en salto o en estroboscopio.
+- **Hacer parpadear una luz Magic Home**: hace parpadear un color de 1 a 60 segundos y luego la luz vuelve a su estado anterior (color, blanco, efecto o apagada).
+- **Detener un efecto Magic Home**: vuelve al último color o blanco fijo.
+
+### Ejemplos de escenas
+
+- Cuando alguien llama a la puerta → **Hacer parpadear una luz Magic Home** en rojo durante 5 segundos en la lámpara del salón.
+- Cuando la luz del jardín deja de responder → enviarse un mensaje: la han apagado en el interruptor.
+- Cada tarde al atardecer → tira de la cocina al 40 % y luego **Reproducir colores Magic Home** `#FF6A00, #FF0040` en fundido lento en la tira del salón.
+
+## Solución de problemas
+
+- **No se encuentra ningún dispositivo**: compruebe que el dispositivo responde en la app Magic Home **por Wi-Fi** (no a través de la nube, fuera de casa), que está en la misma red que Gladys y que el router no aísla a los clientes Wi-Fi. Si no, introduzca su dirección IP en la configuración.
+- **«Gladys rechazó el descubrimiento de red»**: reinstale la integración y acepte su acceso a la red en la pantalla de instalación.
+- **Un dispositivo está «Sin respuesta»**: está desenchufado, apagado en el interruptor o sin Wi-Fi. Si su dirección cambió, la siguiente búsqueda lo vuelve a encontrar; pulse **Buscar y probar los dispositivos** para buscar en el acto.
+- **Un efecto no se inicia**: los enchufes, los dispositivos de solo blanco y las tiras direccionables no tienen efectos integrados en esta integración; algunos efectos solo existen en los firmwares recientes.
+- **Falta una función o es incorrecta**: las funciones siguen el modelo y el cableado que anuncia el dispositivo (su parámetro `MAGICHOME_MODEL`). Abra una issue en GitHub con este parámetro, las versiones de Gladys y de la integración, y los logs (pestaña Logs de la integración).

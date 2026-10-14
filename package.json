@@ -1,0 +1,34 @@
+{
+  "name": "gladys-magic-home",
+  "version": "0.1.0",
+  "private": true,
+  "description": "External Gladys Assistant integration for Magic Home (Zengge / flux_led) Wi-Fi LED bulbs, strips and sockets, controlled on the local network, with widgets and scenes.",
+  "homepage": "https://github.com/William-De71/gladys-magic-home",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/William-De71/gladys-magic-home.git"
+  },
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@gladysassistant/integration-sdk": "^0.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10"
+  },
+  "license": "Apache-2.0"
+}

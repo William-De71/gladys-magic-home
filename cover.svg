@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
+  <!-- Illustration only: no brand logo (Magic Home and Zengge are trademarks of their owners). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121a33"/>
+      <stop offset="1" stop-color="#23164a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff5fd2" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#7a5cff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#7a5cff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd25f"/>
+      <stop offset="0.35" stop-color="#ff6fb5"/>
+      <stop offset="0.7" stop-color="#8f6bff"/>
+      <stop offset="1" stop-color="#40c8ff"/>
+    </linearGradient>
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9edf5"/>
+      <stop offset="1" stop-color="#aeb7c8"/>
+    </linearGradient>
+    <linearGradient id="strip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff4b4b"/>
+      <stop offset="0.2" stop-color="#ffb23e"/>
+      <stop offset="0.4" stop-color="#f6f05a"/>
+      <stop offset="0.6" stop-color="#3ee08a"/>
+      <stop offset="0.8" stop-color="#3fb4ff"/>
+      <stop offset="1" stop-color="#b06bff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="534" fill="url(#bg)"/>
+
+  <!-- Local network: dotted links between the devices -->
+  <g fill="none" stroke="#9db4ff" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round">
+    <path d="M300 214 C 360 170, 440 170, 500 214"/>
+    <path d="M250 330 C 300 380, 340 392, 380 396"/>
+  </g>
+
+  <!-- Bulb with its glow -->
+  <circle cx="200" cy="210" r="150" fill="url(#halo)"/>
+  <g transform="translate(200 200)">
+    <path d="M0 -92 C 54 -92 86 -52 86 -8 C 86 26 64 46 50 64 C 42 74 40 82 40 92 L -40 92 C -40 82 -42 74 -50 64 C -64 46 -86 26 -86 -8 C -86 -52 -54 -92 0 -92 Z" fill="url(#glass)"/>
+    <path d="M-46 -40 C -40 -66 -18 -78 6 -80" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="9" stroke-linecap="round"/>
+    <rect x="-40" y="94" width="80" height="16" rx="5" fill="url(#base)"/>
+    <rect x="-36" y="112" width="72" height="14" rx="5" fill="url(#base)"/>
+    <rect x="-30" y="128" width="60" height="14" rx="5" fill="url(#base)"/>
+    <path d="M-16 144 L 16 144 L 8 158 L -8 158 Z" fill="#8c95a8"/>
+  </g>
+
+  <!-- Socket -->
+  <g transform="translate(560 150)">
+    <rect x="-62" y="-62" width="124" height="124" rx="26" fill="#f4f6fb"/>
+    <circle cx="0" cy="0" r="40" fill="#e1e6f0"/>
+    <circle cx="-16" cy="0" r="7" fill="#2a3150"/>
+    <circle cx="16" cy="0" r="7" fill="#2a3150"/>
+    <circle cx="40" cy="-44" r="6" fill="#3ee08a"/>
+  </g>
+
+  <!-- LED strip -->
+  <g transform="translate(390 360)">
+    <rect x="0" y="0" width="340" height="44" rx="14" fill="#1b2040" stroke="#3a4170" stroke-width="2"/>
+    <rect x="10" y="10" width="320" height="24" rx="8" fill="url(#strip)" opacity="0.95"/>
+    <g fill="#ffffff" fill-opacity="0.75">
+      <circle cx="30" cy="22" r="4"/>
+      <circle cx="70" cy="22" r="4"/>
+      <circle cx="110" cy="22" r="4"/>
+      <circle cx="150" cy="22" r="4"/>
+      <circle cx="190" cy="22" r="4"/>
+      <circle cx="230" cy="22" r="4"/>
+      <circle cx="270" cy="22" r="4"/>
+      <circle cx="310" cy="22" r="4"/>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <g font-family="DejaVu Sans, Arial, sans-serif" fill="#ffffff">
+    <text x="60" y="440" font-size="56" font-weight="700">Magic Home</text>
+    <text x="62" y="482" font-size="24" fill="#c9d3f5">for Gladys Assistant · local network, no cloud</text>
+  </g>
+</svg>
