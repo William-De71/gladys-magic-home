@@ -8,7 +8,7 @@ Todo se queda en su **red local**: sin cuenta, sin nube, nada sale de su casa. G
 
 ## Requisitos
 
-- Gladys Assistant 5.1.1 o posterior.
+- Gladys Assistant 5.3.0 o posterior.
 - Dispositivos configurados con la app Magic Home Pro (o Zengge, Surplife…) y conectados a la **misma red que Gladys**. Una red de invitados o un router que aísla a los clientes Wi-Fi los bloquea.
 - En la pantalla de instalación, acepte el **descubrimiento de red** (puerto UDP 48899): es lo que permite a Gladys encontrar los dispositivos.
 

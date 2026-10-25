@@ -12,7 +12,7 @@ sandboxed Docker container, talking to Gladys through
 [`@gladysassistant/integration-sdk`](https://github.com/GladysAssistant/integration-sdk-js)
 and to the devices **on the local network only** (`transports: ["local"]`).
 
-A **device integration** (`type: "device"`, Gladys 5.1.1+). The protocol is
+A **device integration** (`type: "device"`, Gladys 5.3.0+). The protocol is
 implemented in `src/magichome/` from the documentation of the open-source
 [flux_led](https://github.com/lightinglibs/flux_led) library (LGPL: used as a
 reference only, never copy its code). When a device misbehaves, compare with

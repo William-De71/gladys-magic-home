@@ -5,7 +5,7 @@
 [![Licence : Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-blue.svg)](LICENSE)
 [![Dernière version](https://img.shields.io/github/v/release/William-De71/gladys-magic-home?sort=semver)](https://github.com/William-De71/gladys-magic-home/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-magic-home/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-magic-home/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.1-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Magic Home pour Gladys Assistant](cover.jpg)
 
@@ -128,7 +128,7 @@ Aucune ne renvoie de sortie, et aucune ne peut déclencher un déclencheur. Exem
 
 ## Prérequis
 
-- Gladys Assistant **5.1.1 ou plus récent** (widgets de tableau de bord et déclencheurs et actions de scène des intégrations ; les instances plus anciennes ne peuvent pas installer l’intégration).
+- Gladys Assistant **5.3.0 ou plus récent** (mots-clés du catalogue de Gladys 5.3, widgets de tableau de bord et déclencheurs et actions de scène des intégrations ; les instances plus anciennes ne peuvent pas installer l’intégration).
 - Des appareils installés avec l’application Magic Home Pro (ou Zengge, Surplife…), connectés au même réseau que Gladys ; la box doit laisser passer le port UDP 48899 et le port TCP 5577 entre eux (pas de réseau invité, pas d’isolation des clients).
 - Une adresse IP fixe par appareil dans la box est recommandée (l’intégration retrouve un appareil qui a changé d’adresse, mais plus vite avec une adresse fixe).
 

@@ -5,7 +5,7 @@
 [![Licencia: Apache-2.0](https://img.shields.io/badge/licencia-Apache--2.0-blue.svg)](LICENSE)
 [![Última versión](https://img.shields.io/github/v/release/William-De71/gladys-magic-home?sort=semver)](https://github.com/William-De71/gladys-magic-home/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-magic-home/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-magic-home/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.1-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Magic Home para Gladys Assistant](cover.jpg)
 
@@ -128,7 +128,7 @@ Ninguna devuelve salidas y ninguna puede activar un disparador. Ejemplos:
 
 ## Requisitos
 
-- Gladys Assistant **5.1.1 o posterior** (widgets de panel y disparadores y acciones de escena de las integraciones; las instancias más antiguas no pueden instalar la integración).
+- Gladys Assistant **5.3.0 o posterior** (palabras clave del catálogo de Gladys 5.3, widgets de panel y disparadores y acciones de escena de las integraciones; las instancias más antiguas no pueden instalar la integración).
 - Dispositivos configurados con la app Magic Home Pro (o Zengge, Surplife…), conectados a la misma red que Gladys; el router debe dejar pasar el puerto UDP 48899 y el puerto TCP 5577 entre ellos (sin red de invitados ni aislamiento de clientes).
 - Se recomienda una dirección IP fija por dispositivo en el router (la integración encuentra un dispositivo que cambió de dirección, pero antes con una dirección fija).
 

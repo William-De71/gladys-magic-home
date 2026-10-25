@@ -8,7 +8,7 @@ Alles bleibt in Ihrem **lokalen Netzwerk**: kein Konto, keine Cloud, nichts verl
 
 ## Voraussetzungen
 
-- Gladys Assistant 5.1.1 oder neuer.
+- Gladys Assistant 5.3.0 oder neuer.
 - Mit der App Magic Home Pro (oder Zengge, Surplife…) eingerichtete Geräte im **selben Netzwerk wie Gladys**. Ein Gastnetz oder ein Router, der WLAN-Clients isoliert, blockiert sie.
 - Erlauben Sie auf dem Installationsbildschirm die **Netzwerkerkennung** (UDP-Port 48899): Mit ihr findet Gladys die Geräte.
 

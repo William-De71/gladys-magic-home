@@ -5,7 +5,7 @@
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/William-De71/gladys-magic-home?sort=semver)](https://github.com/William-De71/gladys-magic-home/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-magic-home/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-magic-home/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.1-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Magic Home for Gladys Assistant](cover.jpg)
 
@@ -128,7 +128,7 @@ None of them returns outputs, and none can fire a trigger. Examples:
 
 ## Requirements
 
-- Gladys Assistant **5.1.1 or later** (dashboard widgets and scene triggers and actions of integrations; older instances cannot install the integration).
+- Gladys Assistant **5.3.0 or later** (catalog keywords of Gladys 5.3, dashboard widgets and scene triggers and actions of integrations; older instances cannot install the integration).
 - Devices set up with the Magic Home Pro app (or Zengge, Surplife…), connected to the same network as Gladys; the router must let UDP port 48899 and TCP port 5577 through between them (no guest network, no client isolation).
 - A fixed IP address per device in your router is recommended (the integration finds a moved device again, but sooner with a fixed one).
 

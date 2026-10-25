@@ -8,7 +8,7 @@ Tout reste sur votre **réseau local** : pas de compte, pas de cloud, rien ne so
 
 ## Prérequis
 
-- Gladys Assistant 5.1.1 ou plus récent.
+- Gladys Assistant 5.3.0 ou plus récent.
 - Des appareils installés avec l’application Magic Home Pro (ou Zengge, Surplife…) et connectés au **même réseau que Gladys**. Un réseau invité ou une box qui isole les clients Wi-Fi les bloque.
 - Sur l’écran d’installation, acceptez la **découverte réseau** (port UDP 48899) : c’est elle qui permet à Gladys de trouver les appareils.
 
